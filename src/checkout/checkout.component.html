@@ -1,0 +1,103 @@
+
+<br><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="">
+            <h3 class="title">Shipping Address</h3>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name+Last Name">
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Address">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="ZIP Code">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Telephone">
+          </div>
+          <br><br>
+          <div class="input-checkbox">
+            <input type="checkbox">
+              <span> I've read and accept the <a href="#">terms & conditions</a></span>
+          </div>
+
+        </div>
+    
+        <!-- Order Details -->
+        <div class="col-lg-5 order-details">
+          <div class="text-center">
+            <h3 class="title">Your Order</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr class="bg-info">
+                    <th>Products</th>
+                    <th>Sub Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cart of cartdetails">
+                    <td>{{cart.productQuant}}x {{cart.productName}}</td>
+                    <td>{{(cart.productPrice*cart.productQuant) | currency:'INR'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Shipping : </th>
+                  <th><strong>FREE</strong></th>
+                </tr>
+                <tr>
+                  <th>
+                    <strong>TOTAL Amount : </strong>
+                  </th>
+                  <th>
+                    <strong class="order-total">{{total | currency:'INR'}}</strong>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+            <h5>Payment Methods :</h5>
+            <div class="input-radio">
+              <input type="radio">
+              <span>Direct Bank Transfer</span>
+            </div>
+            <div class="input-radio">
+              <input type="radio">
+              <span>Cheque Payment</span>
+            </div>
+            <div class="input-radio">
+              <input type="radio">
+              <span></span>
+                Paypal System
+             </div>
+          </div>
+          
+        </div>
+          <br>
+          <div>
+            <a [routerLink]="['/thankyou']" (click)="ShowSuccess()"><button class="btn btn-info">Place order</button></a>
+          </div>
+          
+        
+      </div>
+      
+

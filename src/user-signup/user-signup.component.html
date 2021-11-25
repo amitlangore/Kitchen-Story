@@ -1,0 +1,87 @@
+<br><br>
+
+<div class="card">
+    <div class="card-header heading">
+        <h4>New User ? Register Here!</h4>
+    </div>
+
+    <div class="card-body">
+        <form novalidate (ngSubmit)="save(regForm)" #regForm="ngForm" class="form-responsive">
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="firstID">First Name:</label>
+                <div class="col-md-8">
+                    <input type="text" required minlength="3" name="firstname"  [(ngModel)]=user.firstname #firstnameVar = "ngModel"
+                    [ngClass]="{'is-invalid':(firstnameVar.touched || firstnameVar.dirty) && !firstnameVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=firstnameVar.errors?.required>
+                            The first name can't be blank
+                        </span>
+                        <span *ngIf=firstnameVar.errors?.minlength>
+                            The first name should be atleast four characters long
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="lastID">Last Name:</label>
+                <div class="col-md-8">
+                    <input type="text" required minlength="3" name="lastname"  [(ngModel)]=user.lastname #lastnameVar = "ngModel"
+                    [ngClass]="{'is-invalid':(lastnameVar.touched || lastnameVar.dirty) && !lastnameVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=lastnameVar.errors?.required>
+                            The first name can't be blank
+                        </span>
+                        <span *ngIf=lastnameVar.errors?.minlength>
+                            The first name should be atleast four characters long
+                        </span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="email">Email:</label>
+                <div class="col-md-8">
+                    <input type="text" required name="email"  [(ngModel)]=user.email #emailVar = "ngModel"
+                    [ngClass]="{'is-invalid':(emailVar.touched || emailVar.dirty) && !emailVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=emailVar.errors?.required>
+                            Email can't be blank
+                        </span>
+                        <span *ngIf=emailVar.errors?.email>
+                            Enter a valid Email Address
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="pwd">Password:</label>
+                <div class="col-md-8">
+                    <input type="password" required name="password" minlength="8" [(ngModel)]=user.password #pwdVar = "ngModel"
+                    [ngClass]="{'is-invalid':(pwdVar.touched || pwdVar.dirty) && !pwdVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=pwdVar.errors?.required>
+                            Password is required
+                        </span>
+                        <span *ngIf=pwdVar.errors?.minlength>
+                            Password should be minimum 8 characters long.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            
+            <button class="btn btn-success" type="submit" [disabled]='!regForm.valid'>Submit</button>
+        </form>
+
+        <div class="card-footer">
+            <p>Already Registered? <a [routerLink]="['/login']">Login</a> instead! </p>
+        </div>
+
+    </div>
+</div>

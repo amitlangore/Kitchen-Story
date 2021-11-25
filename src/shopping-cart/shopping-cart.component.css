@@ -1,0 +1,34 @@
+.btn-cir{
+    border-radius: 50%;
+}
+
+.btn{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.btn-trash{
+    font-size: large;
+    font-weight: 600;
+}
+
+.cart-content span{
+    font-weight: 600;
+    font-size: large;
+}
+
+.total{
+    margin-left: 25px;
+}
+
+tr:hover{
+    background-color: rgba(255, 218, 185, 0.26);
+}
+
+.pl-or{
+    margin-right: 145px;
+}
+
+a{
+    padding-left: 10px;
+}

@@ -1,0 +1,40 @@
+header{
+    padding: 20px 0;
+}
+
+.navbar-brand{
+    font-family: cursive;
+}
+
+ul li a{
+    padding-right: 16px;
+}
+
+#user{
+    padding-top: 15px;
+    font-weight: 600;
+}
+
+.cart-icon{
+    position: relative;
+}
+
+.cart-icon i{
+    font-size: xx-large;
+}
+
+.cart-value{
+    font-size: 13px;
+    position:absolute;
+    color: white;
+    top: -8px;
+    right: -8px;
+    background: rgb(0, 0, 0);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    padding: 4px 10px;
+}
+
+a{
+    font-weight: 600;
+}

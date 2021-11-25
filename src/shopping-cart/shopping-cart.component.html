@@ -1,0 +1,47 @@
+<br><br>
+<h2 style="text-align: center;">MY CART</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+            <div *ngIf = "cartdetails">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let cart of cartdetails">
+                                <td>
+                                    <img src="{{cart.productImg}}" width="150px" height="150px">
+                                </td>
+                                <td><br> {{cart.productName}} <br><br> {{cart.productPrice | currency:'INR'}} </td>
+                                <td class="cart-content">
+                                    <br>
+                                    <button class="btn btn-info btn-cir" (click)="decqaunt(cart.productID, cart.productQuant)"><i class="fa fa-minus"></i></button> 
+                                    <span> {{cart.productQuant}} </span>  
+                                    <button class="btn btn-info btn-cir" (click)="incqaunt(cart.productID, cart.productQuant)"><i class="fa fa-plus"></i></button>
+                                    <button class="btn btn-danger btn-trash" (click)="removeitem(cart.productID)"> <i class="fa fa-trash"></i> </button>
+                                    <br><br><br><br>
+                                    <span class="total">Sub Total: {{cart.productPrice * cart.productQuant | currency:'INR'}}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>  
+            </div>
+        </div>
+        <div class="col-lg-5 ">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Payment Details</h5>
+                </div>
+                <div class="card-footer">
+                    <p>Total Amount : {{total | currency:'INR'}}</p>
+                </div>
+            </div>
+            
+            <div>
+                <br>
+                <button class="btn btn-danger pl-or" (click)="removeallitems()"><i class="fa fa-trash"></i> Remove All Items</button>
+                <a [routerLink]="['/checkout']"><button class="btn btn-primary">checkout</button></a>
+            </div>
+        </div>
+    </div>
+</div>

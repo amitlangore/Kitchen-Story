@@ -1,0 +1,100 @@
+<app-admin-navbar></app-admin-navbar>
+
+<br><br>
+<div class="card">
+    <div class="card-header heading">
+        <h4>Add Product</h4>
+    </div>
+
+    
+        <form novalidate (ngSubmit)="save(regForm)" #regForm="ngForm" class="form-responsive">
+            <div class="card-body">
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="ID">Product ID:</label>
+                <div class="col-md-8">
+                    <input type="number" min="37" required name="proid" [(ngModel)]=addpro.product_ID #productidVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productidVar.touched || productidVar.dirty) && !productidVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productidVar.errors?.required>
+                            Product ID can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="name">Product Name:</label>
+                <div class="col-md-8">
+                    <input type="text" required name="proname" [(ngModel)]=addpro.product_Name #productnameVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productnameVar.touched || productnameVar.dirty) && !productnameVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productnameVar.errors?.required>
+                            Product Name can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="price">Product Price:</label>
+                <div class="col-md-8">
+                    <input type="text" required name="proprice" [(ngModel)]=addpro.product_Price #productpriceVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productpriceVar.touched || productpriceVar.dirty) && !productpriceVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productpriceVar.errors?.required>
+                            Product Price can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="Category">Product Category:</label>
+                <div class="col-md-8">
+                    <input type="text" required name="procat" [(ngModel)]=addpro.product_Category #productcatVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productcatVar.touched || productcatVar.dirty) && !productcatVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productcatVar.errors?.required>
+                            Product Category can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="image">Product Image:</label>
+                <div class="col-md-8">
+                    <input type="text" required name="proimg" [(ngModel)]=addpro.product_Image #productimgVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productimgVar.touched || productimgVar.dirty) && !productimgVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productimgVar.errors?.required>
+                            Product Image Src can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="Quantity">Product Quantity:</label>
+                <div class="col-md-8">
+                    <input type="number" required name="proqty" min="1" max="1" [(ngModel)]=addpro.product_qty #productqtyVar = "ngModel"
+                    [ngClass]="{'is-invalid':(productqtyVar.touched || productqtyVar.dirty) && !productqtyVar.valid}">
+
+                    <span class="invalid-feedback">
+                        <span *ngIf=productqtyVar.errors?.required>
+                            Product Quantity can't be blank
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    <div class="card-footer">
+        <button class="btn btn-primary">Save</button>
+    </div>
+</form>
+</div>
